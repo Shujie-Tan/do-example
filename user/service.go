@@ -3,6 +3,8 @@ package user
 import (
 	"context"
 	"example/domain"
+
+	"github.com/samber/do"
 )
 
 type service struct {
@@ -18,4 +20,10 @@ func (s *service) FetchByUsername(ctx context.Context, username string) (*domain
 		ID:       userEntity.ID,
 		Username: userEntity.Username,
 	}, nil
+}
+
+// be care that the return type should be interface, rather than the concrete type
+func NewService(i *do.Injector) (domain.UserService, error) {
+	repo := do.MustInvoke[domain.UserRepository](i)
+	return &service{repo: repo}, nil
 }

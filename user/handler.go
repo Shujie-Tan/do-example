@@ -3,6 +3,8 @@ package user
 import (
 	"example/domain"
 	"net/http"
+
+	"github.com/samber/do"
 )
 
 type handler struct {
@@ -20,4 +22,9 @@ func (h *handler) FetchByUsername() http.HandlerFunc {
 		}
 		w.Write([]byte(user.Username))
 	}
+}
+
+func NewHandler(i *do.Injector) (domain.UserHandler, error) {
+	svc := do.MustInvoke[domain.UserService](i)
+	return &handler{svc: svc}, nil
 }
