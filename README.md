@@ -1,5 +1,5 @@
 # Dependency injection example using samber/do
-This repository contains an example of dependency injection in Go using samber/do, as explained in this [article](todo).
+This repository contains an example of dependency injection in Go using samber/do, as explained in this [article](https://medium.com/@JoshuaTan/golang-dependency-injection-based-on-generics-samber-do-without-code-generation-42f8a2d0971c).
 
 ## Prerequisites
 Ensure PostgreSQL is installed and running. Follow the [official PostgreSQL documentation](https://www.postgresql.org/docs/14/tutorial.html) for installation instructions. If you're using MacOS, you can use the following commands:
